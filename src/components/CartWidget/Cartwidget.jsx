@@ -1,10 +1,10 @@
-import cart from './assets/carrito.svg'
+import carrito from '../../assets/carrito.png'
 
 
 const CartWidget = () => {
   return (
-    <div class="flex justify-end items-center">
-         <img src={cart} alt="logo" class="w-[3%]" />   
+    <div className="flex justify-end items-center">
+         <img src={carrito} alt="logo" className="w-[10%]" />   
         <label>0</label>
     </div>
   )
