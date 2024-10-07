@@ -1,8 +1,8 @@
 
 const ItemListContainer = (props) => {
     return (
-      <div className="h-96">
-          <div className="min-h-screen absolute  z-40 w-64  bg-slate-300">
+      <div className="flex h-full">
+          <div className="w-1/5 text-center bg-slate-300">
             
                 { 
                     <h1>Panel Izquierdo</h1> 
@@ -10,13 +10,20 @@ const ItemListContainer = (props) => {
            
           </div>
 
-          <div className="min-h-screen sm:ml-64 bg-slate-500">
-              <div className="p-4 ">
+          <div className="w-3/5 text-center bg-slate-500">
+              <div className="">
                   <h1 >
                         {props.saludo}
                   </h1>
               </div>
 
+          </div>
+          <div className="w-1/5 text-center bg-slate-300">
+            
+                { 
+                    <h1>Panel Derecho</h1> 
+                }
+           
           </div>
 
         

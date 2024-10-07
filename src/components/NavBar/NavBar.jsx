@@ -1,13 +1,13 @@
 import React from 'react'
-import CartWidget from '../CartWidget/CartWidget'
+import CartWidget from '../CartWidget/Cartwidget'
 import fox from '../../assets/logo_zorro_gamer.png'
 
 const NavBar = () => {
   return (
-    <div>
+    <div >
         <nav className="flex sticky top-0 justify-between items-end p-2 relative bg-gray-800 h-17 text-[17px]" >
             <div className="flex items-center">
-                <img src={fox} alt="logo" className="w-[35%]" />
+                <img src={fox} alt="logo" className="w-[31%]" />
             </div>
 
             <div className="absolute left-1/2 transform -translate-x-1/2 flex gap-10 ">

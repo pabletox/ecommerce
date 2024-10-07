@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div >
+      <div className='h-full'>
         <NavBar />
         <ItemListContainer saludo={'Pronto los mejores componentes Gamers'}/>
       
