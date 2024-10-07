@@ -4,8 +4,9 @@ const ItemListContainer = (props) => {
       <div className="flex h-full">
           <div className="w-1/5 text-center bg-slate-300">
             
-                { 
+                { /*
                     <h1>Panel Izquierdo</h1> 
+                    */
                 }
            
           </div>
@@ -20,8 +21,9 @@ const ItemListContainer = (props) => {
           </div>
           <div className="w-1/5 text-center bg-slate-300">
             
-                { 
+                { /*
                     <h1>Panel Derecho</h1> 
+                    */
                 }
            
           </div>

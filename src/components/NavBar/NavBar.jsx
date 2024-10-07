@@ -4,8 +4,8 @@ import fox from '../../assets/logo_zorro_gamer.png'
 
 const NavBar = () => {
   return (
-    <div >
-        <nav className="flex sticky top-0 justify-between items-end p-2 relative bg-gray-800 h-17 text-[17px]" >
+    <div className='sticky top-0'>
+        <nav className="flex justify-between items-end p-2 relative bg-gray-800 h-17 text-[17px]" >
             <div className="flex items-center">
                 <img src={fox} alt="logo" className="w-[31%]" />
             </div>
