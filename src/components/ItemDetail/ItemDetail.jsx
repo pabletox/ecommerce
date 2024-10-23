@@ -1,14 +1,15 @@
 
 const ItemDetail = ({ product }) => {
   return (
-    <div className="item-detail">
-      <img src={product.image} alt="" width={600} />
-      <div className="text-detail-container">
-        <h2 className="title-detail">{product.name}</h2>
-        <p className="text-detail">{product.description}</p>
-        <p className="font-bold">Precio: ${product.price}</p>
-      </div>
-    </div>
+ 
+
+        <div className="flex justify-center items-center flex-col ">
+                
+        <img src={product.image} width={600} alt="" />
+        <h2 className="text-base font-bold">{product.name}</h2>
+        <h3 className="text-sm">{product.description}</h3>
+        <p className="font-bold">Precio: ${product.price.toLocaleString('es-ES', { style: 'currency', currency: 'CLP' })}</p>
+        </div>
   )
 }
 export default ItemDetail
