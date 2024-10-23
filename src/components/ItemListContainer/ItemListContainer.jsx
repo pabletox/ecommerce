@@ -1,25 +1,29 @@
+import ItemList from "./ItemList"
+import hocFilterProducts from "../../hoc/hocFilterProducts"
+
 
 const ItemListContainer = (props) => {
+    //const {products}  = useProducts()   
+
     return (
-      <div className="flex h-full">
-          <div className="w-1/5 text-center bg-slate-300">
+      <div className="flex ">
+          <div className="w-1/6 text-center bg-slate-300">
             
-                { /*
-                    <h1>Panel Izquierdo</h1> 
-                    */
-                }
+                {props.leftInput}
+                {props.leftDDL}
            
           </div>
 
-          <div className="w-3/5 text-center bg-slate-500">
+          <div className="w-4/6 text-center bg-slate-300">
               <div className="">
-                  <h1 >
-                        {props.saludo}
-                  </h1>
+
+                    
+                    <ItemList products={props.products} />
+                  
               </div>
 
           </div>
-          <div className="w-1/5 text-center bg-slate-300">
+          <div className="w-1/6 text-center bg-slate-300">
             
                 { /*
                     <h1>Panel Derecho</h1> 
@@ -32,6 +36,9 @@ const ItemListContainer = (props) => {
       </div>
     )
   }
+
+
+  const ItemListContainerWithHoc = hocFilterProducts(ItemListContainer)
   
-  
-  export default ItemListContainer
+  export default ItemListContainerWithHoc
+  //export default ItemListContainer
