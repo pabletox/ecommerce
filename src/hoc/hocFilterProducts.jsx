@@ -38,17 +38,18 @@ const hocFilterProducts = (Component) => {
                 <Component 
                     products={search()} 
                     leftInput={<div className="mt-8">
-                                    <input type="text" placeholder="Buscar..." onChange={changeInput}/>
+                                    <input id="inputBuscar" type="text" placeholder="Buscar..." onChange={changeInput}/>
                                 </div>} 
                     leftDDL = {<div className="mt-4">
-                                    <label for="opciones">Categoria: </label>
-                                    <select id="opciones" name="opciones" onChange={changeDDL}>
+                                    <label input="labelDdl" htmlFor="opciones">Categoria: </label>
+                                    <select id="opciones" name="opciones" defaultValue="default"onChange={changeDDL}>
                                         {
                                             categorys.map((category) => (
-                                            <option value={category.name} selected>{category.name}</option>
+                                            <option key={category.name} value={category.name} >{category.name}</option>
                                                 ))
                                         }
-                                        <option value="" selected>Todos</option>
+                                        <option value="" >Todos</option>
+                                        <option value="default" disabled>Categoria</option>
                                     </select>
                                 </div>}
 
