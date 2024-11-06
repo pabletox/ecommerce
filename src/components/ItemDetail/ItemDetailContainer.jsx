@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
-import { getProducts } from "../../data/data"
+//import { getProducts } from "../../data/data" se cambio para traer productos desde firebase
+import db from "../../db/db.js"
+import { getDoc, doc } from "firebase/firestore"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail.jsx"
 
@@ -10,13 +12,30 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
     const {idProduct} = useParams()
 
+    const getProductById = () =>{
+      //crea la referencia al producto
+      const docRef= doc(db, "products", idProduct)
+      //trae el producto
+      getDoc(docRef).then((dataDb)=>{
+        //se le da el formato correcto
+        const data = { id: dataDb.id, ...dataDb.data()}
+        //se guarda el producto
+        setProduct(data)
+        //se cambia el esatado para que muestre el producto en ves de cargando
+      }).finally(()=>setLoading(false))
+
+    }
+
     useEffect( ()=> {
-        getProducts()
+
+      getProductById()
+      /* aqui se traia los productos desde el data.js 
+       getProducts()
           .then((data)=> {
             const findProduct = data.find((productData)=> productData.id === idProduct )
             setProduct(findProduct)
           } )
-          .finally(()=>setLoading(false))
+          .finally(()=>setLoading(false))*/
       }, [] )
 
 

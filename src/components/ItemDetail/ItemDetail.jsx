@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom"
+import ItemCount from "../ItemCount/ItemCount"
+import { useContext } from "react"
+import { cartContext } from "../context/CartContext"
 
 const ItemDetail = ({ product }) => {
+
+    const { addProductIncart } = useContext(cartContext)
+
+    const addProduct = (count) => {
+        const productCart = { ...product, quantity: count }
+        addProductIncart(productCart)
+    }
+
   return (
  
-
         
         <div className="grid grid-cols-5 grid-rows-4">
               <div className="col-span-2 row-span-3 col-start-2 place-self-center">
@@ -18,7 +28,8 @@ const ItemDetail = ({ product }) => {
                   Info de envio
               </div>
               <div className="row-span-2 col-start-4 row-start-4">
-                  Botones de agregar a carrito
+                <ItemCount stock={product.stock}  addProduct={addProduct}></ItemCount>
+                  
               </div>
         </div>
         

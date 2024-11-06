@@ -14,7 +14,7 @@ const products = [
       name: "GeForce RTX 3050",
       description: "Tarjeta de Video MSI Nvidia GeForce RTX 3050 LP 6G OC, 14 Gbps, 6GB GDDR6, 96-bit, Low Profile",
       price: 489990,
-      stock: 2,
+      stock: 20,
       image: "/img/tarjeta_video.jpg",
       category: "Tarjeta_Video",
       brand: "MSI"
@@ -24,7 +24,7 @@ const products = [
       name: "Mouse Red Dragon",
       description: "Mouse Gamer Inalámbrico Redragon K1NG M916 PRO, 1000hz, Negro",
       price: 49990,
-      stock: 2,
+      stock: 7,
       image: "/img/mouse.jpg",
       category: "Mouse",
       brand: "Red Dragon"
@@ -34,7 +34,7 @@ const products = [
       name: "Stream Deck Elgato",
       description: "Stream Deck Elgato MK.2, 15 Teclas LCD Personalizables, Negro",
       price: 129990,
-      stock: 2,
+      stock: 6,
       image: "/img/streamdeck.jpg",
       category: "Otros",
       brand: "Elgato"
@@ -54,7 +54,7 @@ const products = [
       name: "Mouse Red Dragon",
       description: "Mouse Gamer Inalámbrico Redragon K1NG M916 PRO, 1000hz, Blanco",
       price: 29890,
-      stock: 2,
+      stock: 22,
       image: "/img/mouse_blanco.jpg",
       category: "Mouse",
       brand: "Red Dragon"
@@ -64,7 +64,7 @@ const products = [
       name: "Teclado Red Dragon",
       description: "Teclado Gamer Redragon Fizz Pro, Mecánico, Switch Redragon Red, 65 %, Español, Negro",
       price: 49990,
-      stock: 7,
+      stock: 9,
       image: "/img/teclado_red_negro.jpeg",
       category: "Teclado",
       brand: "Red Dragon"
@@ -74,7 +74,7 @@ const products = [
       name: "Teclado Red Dragon",
       description: "Teclado Gamer Inalámbrico Redragon K673 Pro RGB, 81 Teclas, 75%, Switch Red, BT, Cream/Purple/Green",
       price: 57830,
-      stock: 2,
+      stock: 3,
       image: "/img/teclado_red_purple.png",
       category: "Teclado",
       brand: "Red Dragon"
@@ -84,7 +84,7 @@ const products = [
       name: "Mouse Corsair",
       description: "Mouse Gamer Inalámbrico Corsair M75 Air, Ultraligero 60g, Sensor Marksman 26K DPI, Black",
       price: 27930,
-      stock: 2,
+      stock: 4,
       image: "/img/mouse_corsair.jpg",
       category: "Mouse",
       brand: "Corsair"
