@@ -60,28 +60,59 @@ export const CheckOut = () => {
     }
 
   return (
-    <div>
-        {
-            idOrder === null ? (
-                
-                    <form onSubmit={handleSubmitForm}>
-                        <input type="text" name="fullname" value={dataForm.fullname} onChange={handleChangeInput} placeholder='Nombre Completo'/>
-                        <input type="text" name="phone" value={dataForm.phone} onChange={handleChangeInput} placeholder='Telefono'/>
-                        <input type="text" name="address" value={dataForm.address} onChange={handleChangeInput} placeholder='Dirección'/>
-                        <input type="text" name="email" value={dataForm.email} onChange={handleChangeInput} placeholder='Email'/>
-                        <button type="submit"> Terminar Compra</button>
-                    </form>
-
-                
-            ) : (
-                <div>
-                    <h2>Orden Generada Correctamente! </h2>
-                    <p>Guarde su numero de orden: {idOrder}</p>
-                    <Link to="/" ><button>Volver al inicio</button></Link>
-                </div>
-            )
-
-        }
-    </div>   
+    <div className="max-w-lg mx-auto p-6">
+        {idOrder === null ? (
+            <form onSubmit={handleSubmitForm} className="space-y-4 bg-white p-6 rounded-lg shadow-md">
+            <input
+                type="text"
+                name="fullname"
+                value={dataForm.fullname}
+                onChange={handleChangeInput}
+                placeholder="Nombre Completo"
+                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
+            />
+            <input
+                type="text"
+                name="phone"
+                value={dataForm.phone}
+                onChange={handleChangeInput}
+                placeholder="Teléfono"
+                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
+            />
+            <input
+                type="text"
+                name="address"
+                value={dataForm.address}
+                onChange={handleChangeInput}
+                placeholder="Dirección"
+                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
+            />
+            <input
+                type="email"
+                name="email"
+                value={dataForm.email}
+                onChange={handleChangeInput}
+                placeholder="Email"
+                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
+            />
+            <button
+                type="submit"
+                className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-800 transition"
+            >
+                Terminar Compra
+            </button>
+            </form>
+        ) : (
+            <div className="text-center bg-white p-6 rounded-lg shadow-md space-y-4">
+            <h2 className="text-xl font-semibold text-gray-800">¡Orden Generada Correctamente!</h2>
+            <p className="text-gray-700">Guarde su número de orden: <span className="font-bold">{idOrder}</span></p>
+            <Link to="/">
+                <button className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-800 transition">
+                Volver al inicio
+                </button>
+            </Link>
+            </div>
+        )}
+    </div>
   )
 }
