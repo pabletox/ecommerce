@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { cartContext } from '../context/CartContext'
 import QuantityContainer from './QuantityContainer'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
     
-  const [existItem, setExistItem] = useState (false)
+
   const {cart, totalPrice, deleteProductById, deleteCart} = useContext(cartContext)
 
   return (
@@ -25,7 +25,7 @@ const Cart = () => {
                 <QuantityContainer product={productCart} prodQuantity={productCart.quantity} />
 
 
-                <p className="text-gray-800 font-semibold">Subtotal: ${productCart.quantity * productCart.price}</p>
+                <p className="text-gray-800 font-semibold">Subtotal: ${(productCart.quantity * productCart.price).toLocaleString('es-ES', { style: 'currency', currency: 'CLP' })}</p>
 
                 <button
                   onClick={() => deleteProductById(productCart.id)}
@@ -37,7 +37,7 @@ const Cart = () => {
             ))}
 
             <div className="flex justify-between items-center border-t border-gray-300 pt-4">
-              <p className="text-xl font-bold">Total: ${totalPrice()}</p>
+              <p className="text-xl font-bold">Total:  ${totalPrice().toLocaleString('es-ES', { style: 'currency', currency: 'CLP' })}</p>
               <div className="space-x-4">
                 <button
                   onClick={deleteCart}

@@ -38,7 +38,7 @@ export const CheckOut = () => {
 
     const updateProduct = () => {
 
-        console.log("updateProduct")
+        
         cart.map((productCart)=>{
             const productRef = doc(db,"products",productCart.id)
             updateDoc(productRef, {

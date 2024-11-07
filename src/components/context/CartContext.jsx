@@ -43,19 +43,15 @@ const CartProvider = ({ children }) => {
 
         //comprobar si el producto nuevo ya esta en el carrito
         
-        console.log('idProduct:'+idProduct)
+        
         const tempCart = [...cart]
-        const indexProduct = cart.findIndex( (productCart)=> parseInt(productCart.id) === parseInt(idProduct) )
+        const indexProduct = cart.findIndex( (productCart)=> productCart.id === idProduct )
         if(indexProduct >= 0){
-            console.log('indexProduct:'+indexProduct)
-            console.log('quantity:'+tempCart[indexProduct].quantity)
             if(parseInt(tempCart[indexProduct].quantity) === 1){
-                console.log('entro en quantity =1 con :'+cart[indexProduct].quantity)
-                const tempCart = cart.filter( (productCart)=> parseInt(productCart.id) !== parseInt(idProduct) )
-                setCart(tempCart)
+                const filteredCart = tempCart.filter( (productCart)=> parseInt(productCart.id) !== parseInt(idProduct) )
+                setCart(filteredCart)
                 
             }else{
-                console.log('entro en quantity else con :'+cart[indexProduct].quantity)
                 //resta en el carrito
                 tempCart[indexProduct].quantity = tempCart[indexProduct].quantity -1
                 setCart(tempCart)
@@ -63,7 +59,6 @@ const CartProvider = ({ children }) => {
 
             
         }
-        console.table(cart)
         
     }
 
@@ -84,7 +79,7 @@ const CartProvider = ({ children }) => {
             setCart( [ ...cart, newProduct ] )
         }
 
-        console.table(cart)
+        
 
     }
 

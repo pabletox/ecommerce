@@ -10,8 +10,10 @@ const QuantityContainer = ({product, prodQuantity}) => {
     
     const SubtractQuantity = () => {
         //No es necesario revisar los negativos por que se destruira si llega a 0
-        setQuantity(quantity-1)
-        Subtract(product.id)
+        if(quantity>1){
+          setQuantity(quantity-1)
+          Subtract(product.id)
+        }
 
     }
 
