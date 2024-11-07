@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { cartContext } from '../context/CartContext'
-import { Timestamp, collection, addDoc } from 'firebase/firestore'
+import { Timestamp, collection, addDoc, doc, updateDoc } from 'firebase/firestore'
 import db from '../../db/db.js'
 import { Link } from 'react-router-dom'
 
@@ -33,6 +33,20 @@ export const CheckOut = () => {
 
         }
         uploadOrder(order)
+        updateProduct()
+    }
+
+    const updateProduct = () => {
+
+        console.log("updateProduct")
+        cart.map((productCart)=>{
+            const productRef = doc(db,"products",productCart.id)
+            updateDoc(productRef, {
+                stock: productCart.stock-productCart.quantity
+            })
+
+        })
+
     }
 
     const uploadOrder = (newOrder) => {
