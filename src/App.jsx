@@ -6,6 +6,9 @@ import ItemListContainerWithHoc from './components/ItemListContainer/ItemListCon
 import NavBar from './components/NavBar/NavBar'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { CheckOut } from './components/CheckOut/CheckOut'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -16,6 +19,7 @@ function App() {
         <BrowserRouter>
             <CartProvider>
                 <NavBar />
+                <ToastContainer />
                 <Routes>
                     <Route path="/" element={<ItemListContainerWithHoc/>} />
                     <Route path="/category/:idCategory" element={<ItemListContainerWithHoc/>} />     

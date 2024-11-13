@@ -2,17 +2,26 @@
 import ItemCount from "../ItemCount/ItemCount"
 import { useContext, useState } from "react"
 import { cartContext } from "../context/CartContext"
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 const ItemDetail = ({ product }) => {
 
     const { addProductIncart } = useContext(cartContext)
-    const [showPopup, setShowPopup] = useState(false)
 
     const addProduct = (count) => {
         const productCart = { ...product, quantity: count }
         addProductIncart(productCart)
-        setShowPopup(true)
-        setTimeout(() => setShowPopup(false), 2000) // Oculta el mensaje después de 3 segundos
+        toast.success('Producto agregado!!!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+            });
     }
 
   return (
@@ -31,13 +40,7 @@ const ItemDetail = ({ product }) => {
               <div className="row-span-2 col-start-4 row-start-4">
                 <ItemCount stock={product.stock}  addProduct={addProduct}></ItemCount>
               </div>
-              {showPopup && (
-                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
-                    <div className="bg-white p-6 rounded-lg shadow-lg max-w-xs text-center">
-                        <p className="text-green-600 font-semibold">¡Producto agregado al carrito!</p>
-                    </div>
-                    </div>
-                )}
+              
         </div>
         
   )
