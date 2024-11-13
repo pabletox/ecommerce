@@ -29,13 +29,6 @@ const ItemDetailContainer = () => {
     useEffect( ()=> {
 
       getProductById()
-      /* aqui se traia los productos desde el data.js 
-       getProducts()
-          .then((data)=> {
-            const findProduct = data.find((productData)=> productData.id === idProduct )
-            setProduct(findProduct)
-          } )
-          .finally(()=>setLoading(false))*/
       }, [] )
 
 

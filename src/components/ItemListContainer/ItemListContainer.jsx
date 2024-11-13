@@ -25,10 +25,7 @@ const ItemListContainer = (props) => {
           </div>
           <div className="w-1/6 text-center bg-slate-300">
             
-                { /*
-                    <h1>Panel Derecho</h1> 
-                    */
-                }
+               
            
           </div>
 
