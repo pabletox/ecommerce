@@ -5,6 +5,7 @@ import { cartContext } from '../context/CartContext'
 import { Timestamp, collection, addDoc, doc, updateDoc } from 'firebase/firestore'
 import db from '../../db/db.js'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 export const CheckOut = () => {
     const [dataForm, setDataForm] = useState({ fullname: "",
@@ -34,6 +35,7 @@ export const CheckOut = () => {
         }
         uploadOrder(order)
         updateProduct()
+
     }
 
     const updateProduct = () => {
@@ -56,6 +58,17 @@ export const CheckOut = () => {
             SetidOrder(response.id)
         }).finally(()=>{
             deleteCart()
+            toast.success('Orden Creada con exito!!! 😎', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+                });
         })
     }
 

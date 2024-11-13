@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import Quantity from './Quantity'
 import { cartContext } from '../context/CartContext'
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 
 const QuantityContainer = ({product, prodQuantity}) => {
@@ -13,6 +14,17 @@ const QuantityContainer = ({product, prodQuantity}) => {
         if(quantity>1){
           setQuantity(quantity-1)
           Subtract(product.id)
+          toast.error('Se quito el producto!!! 😢', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+            });
         }
 
     }
@@ -22,6 +34,17 @@ const QuantityContainer = ({product, prodQuantity}) => {
         if (quantity+1 <= product.stock) {
           setQuantity(quantity+1)
           addProductIncartPlus1(product)
+          toast.success('Producto agregado!!! 😎', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+            });
         }
         
 

@@ -11,7 +11,7 @@ const ItemDetail = ({ product }) => {
     const addProduct = (count) => {
         const productCart = { ...product, quantity: count }
         addProductIncart(productCart)
-        toast.success('Producto agregado!!!', {
+        toast.success('Producto agregado!!! 😎', {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,

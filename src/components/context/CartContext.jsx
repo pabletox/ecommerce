@@ -1,5 +1,6 @@
 
 import { createContext, useState, useEffect } from 'react'
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 //contexto del carrito
 const cartContext = createContext()
@@ -33,6 +34,17 @@ const CartProvider = ({ children }) => {
     const deleteProductById = (idProduct) => {
         const productsFilter = cart.filter( (productCart)=> productCart.id !== idProduct )
         setCart(productsFilter)
+        toast.error('Se quito el producto!!! 😢', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+            });
     }
 
     const deleteCart = () => {
