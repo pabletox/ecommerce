@@ -6,6 +6,7 @@ import { Timestamp, collection, addDoc, doc, updateDoc } from 'firebase/firestor
 import db from '../../db/db.js'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast, Bounce } from 'react-toastify';
+import  validateForm from "../../utils/validateForm.js"
 
 export const CheckOut = () => {
     const [dataForm, setDataForm] = useState({ fullname: "",
@@ -16,15 +17,18 @@ export const CheckOut = () => {
     const [idOrder, SetidOrder] = useState(null)
 
     const {cart, totalPrice, deleteCart} = useContext(cartContext)
+
+    const [isLoading, setIsLoading] = useState(false);
                                             
     const handleChangeInput = (event) =>{
         //lo que hace la siguiente linea es con el spread guardar lo que tenga dataForm y luego con los event cambia los campos que se modifiquen
         setDataForm({...dataForm, [event.target.name]:event.target.value})
     }
     
-    const handleSubmitForm = (event) => {
+    const handleSubmitForm = async(event) => {
         //para evitar que se recargue la pagina
         event.preventDefault()
+        setIsLoading(true)
 
         const order = {
             buyer: {...dataForm},
@@ -33,8 +37,26 @@ export const CheckOut = () => {
             total: totalPrice()
 
         }
-        uploadOrder(order)
-        updateProduct()
+
+        const response = await validateForm(dataForm)
+        if (response.status==="success"){
+            uploadOrder(order)
+        }else{
+            toast.error(response.message, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+                });
+            console.log(response)
+        }
+            
+        
 
     }
 
@@ -57,6 +79,7 @@ export const CheckOut = () => {
         addDoc(ordersRef, newOrder).then((response)=>{
             SetidOrder(response.id)
         }).finally(()=>{
+            updateProduct()
             deleteCart()
             toast.success('Orden Creada con exito!!! 😎', {
                 position: "top-right",
@@ -109,11 +132,18 @@ export const CheckOut = () => {
                 className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-gray-500"
             />
             <button
-                type="submit"
-                className="w-full bg-gray-600 text-white py-2 rounded hover:bg-gray-800 transition"
-            >
-                Terminar Compra
+                    type="submit"
+                    className={`w-full py-2 rounded transition ${
+                        isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-gray-600 hover:bg-gray-800'
+                    } text-white`}
+                    disabled={isLoading}
+                >
+                    {isLoading ? "Cargando..." : "Terminar Compra"}
             </button>
+
+                {isLoading && (
+                    <p className="text-center text-gray-600 mt-4">Procesando tu orden, por favor espera...</p>
+                )}
             </form>
         ) : (
             <div className="text-center bg-white p-6 rounded-lg shadow-md space-y-4">
