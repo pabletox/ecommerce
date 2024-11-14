@@ -1,4 +1,4 @@
-//import { getProducts } from "../data/data" se comento para traer info desde firebase
+
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { getDocs, collection, query, where } from "firebase/firestore"
