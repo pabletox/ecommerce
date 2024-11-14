@@ -37,9 +37,15 @@ const ItemDetail = ({ product }) => {
                   <p className="font-bold">Precio: ${product.price.toLocaleString('es-ES', { style: 'currency', currency: 'CLP' })}</p>
               </div>
               
-              <div className="row-span-2 col-start-4 row-start-4">
-                <ItemCount stock={product.stock}  addProduct={addProduct}></ItemCount>
-              </div>
+              {product.stock === 0 ? (
+                  <div className="row-span-2 col-start-4 row-start-4 place-self-center">
+                      <p className="text-red-600 font-bold">Sin stock</p>
+                  </div>
+                ) : (
+                    <div className="row-span-2 col-start-4 row-start-4">
+                        <ItemCount stock={product.stock} addProduct={addProduct} />
+                    </div>
+              )}
               
         </div>
         
