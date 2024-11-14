@@ -55,7 +55,6 @@ export const CheckOut = () => {
                 theme: "dark",
                 transition: Bounce,
                 });
-            console.log(response)
         }
             
         

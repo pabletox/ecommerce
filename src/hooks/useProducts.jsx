@@ -56,24 +56,7 @@ const useProducts = () => {
             getProducts()
         }
         
-       /* 
-        asi se trae la info desde el hock se cambio para traer info desde firebase
-        getProducts()
-        .then((dataProducts)=>{
-  
-            if(idCategory){
-                const productsFilter = dataProducts.filter((product) => product.category === idCategory)
-                setproducts(productsFilter)
-            }else{
-                setproducts(dataProducts)
-            }
-                
-        })
-        .catch((err)=>{console.error(err)})
-        .finally(() => {
-            console.log("Finalizo la promesa")
-          })*/
-
+      
     },[idCategory])
 
     return {products}
