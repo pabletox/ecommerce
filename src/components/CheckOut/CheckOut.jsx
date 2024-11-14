@@ -28,7 +28,7 @@ export const CheckOut = () => {
     const handleSubmitForm = async(event) => {
         //para evitar que se recargue la pagina
         event.preventDefault()
-        setIsLoading(true)
+        
 
         const order = {
             buyer: {...dataForm},
@@ -40,7 +40,9 @@ export const CheckOut = () => {
 
         const response = await validateForm(dataForm)
         if (response.status==="success"){
+            setIsLoading(true)
             uploadOrder(order)
+
         }else{
             toast.error(response.message, {
                 position: "top-right",
