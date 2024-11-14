@@ -8,36 +8,35 @@
 
 ## Descripción
 
-Este ecommerce es un prototipo perteneciente al proyecto final de un curso de coderhouse, aqui se aplicaron tecnologias de react para generar un sitio dinamico que esta basado en componentes y se utilizand distintas tecnicas.
+Este ecommerce es un prototipo desarrollado como parte del proyecto final de un curso de Coderhouse. Aquí se aplicaron tecnologías de React para generar un sitio dinámico basado en componentes y se utilizaron distintas técnicas.
 
-El prototipo permite al cliente buscar productos que se encuentran almacenados en una base de datos (Firebase) y los cuales pueden ser filtrados por categoria, nombre o descripción utilizando los filtros laterales. Tambien permitira al cliente editar su carro de compra agregando o eliminando productos ahi mismo y finalmente le permitira finalizar su orden guardandola en Firebase y entregandole su numero de pedido, todo esto filtrando formularios y cuidando que el manejo de la información sea el correcto.
+El prototipo permite al cliente buscar productos que se encuentran almacenados en una base de datos (Firebase) y que pueden ser filtrados por categoría, nombre o descripción utilizando los filtros laterales. También permite al cliente editar su carrito de compras agregando o eliminando productos, y finalmente le permite finalizar su orden, guardándola en Firebase y entregándole su número de pedido. Todo esto se realiza validando formularios y asegurando que el manejo de la información sea correcto.
 
-## Revision detallada de funcionalidad
+## Revisión detallada de funcionalidades
 
-### Pagina principal
+### Página principal
 
-- Carga una barra de navegaión (NavBar) con las categorias existentes, el logo del Zorro Gamer y el carrito de compra y el indicador de cuantos productos tiene en su carrito de compra.
-- Muestra el listado de todos los produtos en Firebase con sus precios, al hacer click sobre cualquier producto te llevara al detalle de este.
-- En el lado izquierdo se muestra un filtro que permite buscar por cualquier palabra de la pantalla, y tambien un filtro de categorias.
+- Carga una barra de navegación (NavBar) con las categorías existentes, el logo de El Zorro Gamer y el carrito de compras, junto con el indicador de la cantidad de productos en el carrito.
+- Muestra el listado de todos los productos en Firebase con sus precios. Al hacer clic sobre cualquier producto, te llevará al detalle de este.
+- En el lado izquierdo se muestra un filtro que permite buscar por cualquier palabra visible en la pantalla, y también un filtro de categorías.
 
 ### Detalle de Producto
 
-- En el detalle de producto se podra agregar distintas cantidades de productos, esto controlado por un maximo del stock generado el Firebase.
-- Cuando no quede stock se mostrara un mensaje de sin stock que reemplazara el boton de agregar carrito.
-- Al agregar productos al carrito se mostrara una notificación indicando que se agrego el producto en la parte superior derecha.
+- En el detalle de producto se pueden agregar distintas cantidades, controladas por un máximo según el stock disponible en Firebase.
+- Cuando no quede stock, se mostrará un mensaje de "Sin stock" que reemplazará el botón de agregar al carrito.
+- Al agregar productos al carrito, se mostrará una notificación indicando que el producto ha sido agregado en la parte superior derecha.
 
 ### Carrito de compra
 
 - Se muestra el listado de productos seleccionados.
-- Se pueden aumentar, disminur y eliminar productos del carrito cambiando los subtotales y totales a pagar.
-- Existe un boton de vaciar carrito que elimina el carrito.
-- Al agregar o quitar productos se mostrara un mensaje indicando que la accion se realizo.
-- Al terminar la compra se digira a la ultima pantalla.
+- Se pueden aumentar, disminuir y eliminar productos del carrito, actualizando los subtotales y el total a pagar.
+- Existe un botón de "Vaciar carrito" que elimina todos los productos del carrito.
+- Al agregar o quitar productos, se mostrará un mensaje indicando que la acción se realizó correctamente.
+- Al terminar la compra, se redirige a la pantalla de checkout.
 
-### Check out
+### Checkout
 
-- Aqui se soliitan los datos para finalizar la orden la cual  validara los campos para que todos sean ingresados y tomara el control del boton Terminar compra al momento de presionarlo y que todos los campos sean bien llenados, mostrando un mensaje de Cargando y deshabilitando el boton.
-- Al finalizar el proceso se guardara la orden en firebase y tambien se actualizara el stock del producto y mostrara un boton de volver al inicio.
-
+- Aquí se solicitan los datos necesarios para finalizar la orden. Se validarán los campos para asegurar que todos sean ingresados correctamente. El botón "Terminar compra" se habilitará solo cuando los campos estén bien llenados, mostrando un mensaje de "Cargando" y deshabilitando el botón temporalmente.
+- Al finalizar el proceso, se guardará la orden en Firebase, se actualizará el stock del producto y se mostrará un botón de "Volver al inicio".
 
 
