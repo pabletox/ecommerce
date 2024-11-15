@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAxbGaBsMFb0cewiSALPjDZiMkaPEklOO0",
-  authDomain: "ecommerce-zorro-gamer.firebaseapp.com",
-  projectId: "ecommerce-zorro-gamer",
-  storageBucket: "ecommerce-zorro-gamer.firebasestorage.app",
-  messagingSenderId: "867607961417",
-  appId: "1:867607961417:web:0654faee288a0352118498"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MSG_SENDER,
+  appId: import.meta.env.VITE_APP_ID
 };
 
 // Initialize Firebase
