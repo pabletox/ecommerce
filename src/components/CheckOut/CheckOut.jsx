@@ -148,7 +148,7 @@ export const CheckOut = () => {
             </form>
         ) : (
             <div className="text-center bg-white p-6 rounded-lg shadow-md space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800">¡Orden Generada Correctamente!</h2>
+            <h2 className="text-xl font-semibold text-gray-800">¡¡Orden Generada Correctamente!!</h2>
             <p className="text-gray-700">Guarde su número de orden: <span className="font-bold">{idOrder}</span></p>
             <Link to="/">
                 <button className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-800 transition">
